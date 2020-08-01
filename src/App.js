@@ -1,26 +1,38 @@
-import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import React from 'react'
+import { BrowserRouter as Router, Switch, Route } from 'react-router-dom'
+import TodoApp from './components/TodoApp'
+import Nav from './components/Nav'
+import SavedTodos from './components/SavedTodos'
+import QuizApp from './components/QuizApp'
+import Home from './components/Home'
+import GlobalStyle from './theme/globalStyle'
+import styled from 'styled-components'
+import BottomNav from './components/BottomNav'
 
-function App() {
+const App = () => {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+    <Router>
+      <GlobalStyle />
+      <>
+        <Nav />
+        <Switch>
+          <Route path='/' exact>
+            <Home />
+          </Route>
+          <Route path='/todos'>
+            <TodoApp />
+          </Route>
+          <Route path='/saved-todos'>
+            <SavedTodos />
+          </Route>
+          <Route path='/quiz-app'>
+            <QuizApp />
+          </Route>
+        </Switch>
+        <BottomNav />
+      </>
+    </Router>
+  )
 }
 
-export default App;
+export default App
