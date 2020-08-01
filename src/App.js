@@ -1,13 +1,12 @@
 import React from 'react'
 import { BrowserRouter as Router, Switch, Route } from 'react-router-dom'
-import TodoApp from './components/TodoApp'
-import Nav from './components/Nav'
-import SavedTodos from './components/SavedTodos'
-import QuizApp from './components/QuizApp'
-import Home from './components/Home'
+import TodoApp from './components/todos/TodoApp'
+import Nav from './components/navigation/Nav'
+import SavedTodos from './components/todos/SavedTodos'
+import QuizApp from './components/quiz-app/QuizApp'
+import Home from './components/home/Home'
 import GlobalStyle from './theme/globalStyle'
-import styled from 'styled-components'
-import BottomNav from './components/BottomNav'
+import BottomNav from './components/navigation/BottomNav'
 
 const App = () => {
   return (

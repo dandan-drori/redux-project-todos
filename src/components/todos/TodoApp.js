@@ -1,7 +1,7 @@
 import React from 'react'
 import Todos from './Todos'
 import { useSelector, useDispatch } from 'react-redux'
-import { addTodo, handleInputChange } from '../actions'
+import { addTodo, handleInputChange } from '../../actions'
 import styled from 'styled-components'
 import { v4 as uuid } from 'uuid'
 

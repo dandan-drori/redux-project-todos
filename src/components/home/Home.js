@@ -3,11 +3,10 @@ import styled from 'styled-components'
 import { FaCheck } from 'react-icons/fa'
 import { FaHeart } from 'react-icons/fa'
 import { FaQuestion } from 'react-icons/fa'
-import { defaultShadow } from '../theme/sharedStyle'
-import device from '../breakpoints/breakpoints'
+import { defaultShadow } from '../../theme/sharedStyle'
+import device from '../../breakpoints/breakpoints'
 
 const Home = () => {
-  const iconStyles = { position: 'relative', top: '0.75rem' }
   return (
     <Container>
       <HeaderContainer>
@@ -18,7 +17,7 @@ const Home = () => {
         <FeaturesContainer>
           <FeatureContainer>
             <FeatureHeaderContainer>
-              <FaCheck style={iconStyles} />
+              <CheckIcon />
               <FeatureHeader>Todos</FeatureHeader>
             </FeatureHeaderContainer>
             <FeatureContent>
@@ -27,7 +26,7 @@ const Home = () => {
           </FeatureContainer>
           <FeatureContainer>
             <FeatureHeaderContainer>
-              <FaHeart style={iconStyles} />
+              <HeartIcon />
               <FeatureHeader>Saved</FeatureHeader>
             </FeatureHeaderContainer>
             <FeatureContent>
@@ -36,7 +35,7 @@ const Home = () => {
           </FeatureContainer>
           <FeatureContainer>
             <FeatureHeaderContainer>
-              <FaQuestion style={iconStyles} />
+              <QuestionIcon />
               <FeatureHeader>Quiz</FeatureHeader>
             </FeatureHeaderContainer>
             <FeatureContent>
@@ -109,6 +108,21 @@ const FeatureHeader = styled.h4``
 
 const FeatureContent = styled.p`
   text-align: center;
+`
+
+const CheckIcon = styled(FaCheck)`
+  position: relative;
+  top: 0.75rem;
+`
+
+const HeartIcon = styled(FaHeart)`
+  position: relative;
+  top: 0.75rem;
+`
+
+const QuestionIcon = styled(FaQuestion)`
+  position: relative;
+  top: 0.75rem;
 `
 
 export default Home

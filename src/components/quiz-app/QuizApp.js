@@ -1,8 +1,8 @@
 import React from 'react'
 import { BrowserRouter as Router, Route, Switch } from 'react-router-dom'
-import Topics from './quiz-app/Topics'
-import Quiz from './quiz-app/Quiz'
-import useLocalStorage from '../hooks/useLocalStorage'
+import Topics from './Topics'
+import Quiz from './Quiz'
+import useLocalStorage from '../../hooks/useLocalStorage'
 
 const QuizApp = () => {
   const [computersHighscore, setComputersHighscore] = useLocalStorage(

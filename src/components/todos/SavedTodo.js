@@ -1,6 +1,6 @@
 import React from 'react'
 import styled from 'styled-components'
-import { deleteSavedTodo, addTodoFromSaved } from '../actions'
+import { deleteSavedTodo, addTodoFromSaved } from '../../actions'
 import { useDispatch } from 'react-redux'
 import cogoToast from 'cogo-toast'
 

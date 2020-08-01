@@ -23,13 +23,6 @@ export default function IconLabelTabs() {
   const [value, setValue] = React.useState(0)
   const width = window.innerWidth > 0 ? window.innerWidth : window.screen.width
 
-  const linkStyles = {
-    color: 'inherit',
-    border: '1px solid black',
-    textDecoration: 'none',
-    cursor: 'auto',
-    margin: '0',
-  }
   const handleChange = (event, newValue) => {
     setValue(newValue)
   }

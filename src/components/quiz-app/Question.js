@@ -46,7 +46,7 @@ const Question = ({
         <FaLightbulb color='yellow' />
         Hint
       </HintButton>
-      <HintTextWrapper isHintVisible={isHintVisible}>
+      <HintTextWrapper>
         <HintSide>{''}</HintSide>
         <HintText>Hint: {question.hint}</HintText>
       </HintTextWrapper>
@@ -115,11 +115,11 @@ const HintTextWrapper = styled.div`
   box-shadow: 1px 1px 3px 1px rgba(0, 0, 0, 0.25);
   padding-right: 0.5rem;
 
+  /* isHintVisible={isHintVisible} */
+
   @media ${device.mobileL} {
     max-width: 80%;
   }
-
-  ${({ isHintVisible }) => (isHintVisible ? 'display: block' : 'display: none')}
 `
 
 const HintText = styled.p`

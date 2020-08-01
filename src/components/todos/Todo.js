@@ -1,7 +1,7 @@
 import React from 'react'
 import styled from 'styled-components'
 import { useSelector, useDispatch } from 'react-redux'
-import { deleteTodo, saveTodo, toggleTodo } from '../actions'
+import { deleteTodo, saveTodo, toggleTodo } from '../../actions'
 import cogoToast from 'cogo-toast'
 
 const Todo = ({ content, index, createdAt, isCompleted, id, isSaved }) => {

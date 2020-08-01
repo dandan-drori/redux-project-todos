@@ -1,7 +1,7 @@
-import styled from 'styled-components'
 import React from 'react'
 import { Link } from 'react-router-dom'
-import device from '../breakpoints/breakpoints'
+import device from '../../breakpoints/breakpoints'
+import styled from 'styled-components'
 
 const Nav = () => {
   const linkStyle = {
