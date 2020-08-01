@@ -80,6 +80,7 @@ const Submit = styled.input`
   padding-right: 0.5rem;
   border-radius: 5px;
   font-size: 1em;
+
   &:hover {
     background-color: rgba(0, 0, 0, 0.25);
   }

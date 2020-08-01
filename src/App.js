@@ -7,12 +7,14 @@ import QuizApp from './components/quiz-app/QuizApp'
 import Home from './components/home/Home'
 import GlobalStyle from './theme/globalStyle'
 import BottomNav from './components/navigation/BottomNav'
+import Docs from './components/docs/Docs'
+import Contact from './components/contact/Contact'
 
 const App = () => {
   return (
     <Router>
-      <GlobalStyle />
       <>
+        <GlobalStyle />
         <Nav />
         <Switch>
           <Route path='/' exact>
@@ -26,6 +28,12 @@ const App = () => {
           </Route>
           <Route path='/quiz-app'>
             <QuizApp />
+          </Route>
+          <Route path='/docs'>
+            <Docs />
+          </Route>
+          <Route path='/contact-us'>
+            <Contact />
           </Route>
         </Switch>
         <BottomNav />

@@ -1,8 +1,10 @@
 import React from 'react'
-import styled from 'styled-components'
 import { useSelector, useDispatch } from 'react-redux'
 import { deleteTodo, saveTodo, toggleTodo } from '../../actions'
+import { FaHeart } from 'react-icons/fa'
 import cogoToast from 'cogo-toast'
+import device from '../../breakpoints/breakpoints'
+import styled from 'styled-components'
 
 const Todo = ({ content, index, createdAt, isCompleted, id, isSaved }) => {
   const savedTodos = useSelector(
@@ -39,9 +41,8 @@ const Todo = ({ content, index, createdAt, isCompleted, id, isSaved }) => {
               cogoToast.success('Saved To Saved Todos')
             }
           }}
-          isSaved={isSaved}
         >
-          ♥
+          <HeartIcon isSaved={isSaved} />
         </SaveButton>
         <DeleteButton
           onClick={() => {
@@ -63,11 +64,17 @@ const Container = styled.li`
   padding-left: 1rem;
   padding-right: 1rem;
   margin-top: 0.5rem;
+  margin-right: 2.5rem;
   border-radius: 15px;
   border: 1px solid rgba(0, 0, 0, 0.25);
   word-wrap: break-word;
   display: flex;
   justify-content: space-between;
+
+  @media ${device.mobileL} {
+    padding-top: 0.5rem;
+    padding-bottom: 0.5rem;
+  }
 `
 
 const DeleteButton = styled.button`
@@ -84,6 +91,10 @@ const Date = styled.p`
   color: #777;
   margin-top: -0.1rem;
   font-size: 0.9em;
+
+  @media ${device.mobileL} {
+    margin-top: 0;
+  }
 `
 
 const ContentWrapper = styled.div`
@@ -104,8 +115,17 @@ const SaveButton = styled.button`
   background: none;
   border: none;
   cursor: pointer;
+  outline: none;
   padding: 0;
   font-size: 1.6em;
+
+  @media ${device.mobileL} {
+    font-size: 1em;
+    color: black;
+  }
+`
+
+const HeartIcon = styled(FaHeart)`
   color: ${({ isSaved }) => (isSaved ? 'red' : 'black')};
 `
 
@@ -117,12 +137,20 @@ const ButtonsWrapper = styled.div`
   display: flex;
   justify-content: space-around;
   width: 3rem;
+
+  @media ${device.mobileL} {
+    width: 4rem;
+  }
 `
 
 const Checkbox = styled.input`
   position: relative;
   top: -0.18rem;
   margin-right: 0.5rem;
+
+  @media ${device.mobileL} {
+    top: -0.5rem;
+  }
 `
 
 export default Todo

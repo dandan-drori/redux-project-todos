@@ -5,36 +5,55 @@ import { FaHeart } from 'react-icons/fa'
 import { FaQuestion } from 'react-icons/fa'
 import { defaultShadow } from '../../theme/sharedStyle'
 import device from '../../breakpoints/breakpoints'
+import { Button } from '../../theme/sharedStyle'
+import { Link } from 'react-router-dom'
 
 const Home = () => {
   return (
     <Container>
       <HeaderContainer>
-        <Header>Welcome</Header>
+        <Header>
+          Welcome to <LogoSpan>simple</LogoSpan>
+          <LogoCheckIcon />
+          odo,
+        </Header>
+        <SubHeader>Your new task manager.</SubHeader>
+        <CallToAction>
+          <SecondaryButton>
+            <StyledLink color='blue' to='/contact-us'>
+              Contact Us
+            </StyledLink>
+          </SecondaryButton>
+          <PrimaryButton>
+            <StyledLink color='white' to='/docs'>
+              Get Started
+            </StyledLink>
+          </PrimaryButton>
+        </CallToAction>
       </HeaderContainer>
       <FeaturesSection>
         <FeaturesHeader>Features</FeaturesHeader>
         <FeaturesContainer>
           <FeatureContainer>
-            <FeatureHeaderContainer>
+            <FeatureHeaderContainer shadow='rgba(0, 100, 0, 0.55)'>
               <CheckIcon />
               <FeatureHeader>Todos</FeatureHeader>
             </FeatureHeaderContainer>
             <FeatureContent>
-              manage a list of tasks to help you be more organized and efficient
+              Manage a list of tasks to help you be more organized and efficient
             </FeatureContent>
           </FeatureContainer>
           <FeatureContainer>
-            <FeatureHeaderContainer>
+            <FeatureHeaderContainer shadow='rgba(200, 0, 0, 0.55)'>
               <HeartIcon />
               <FeatureHeader>Saved</FeatureHeader>
             </FeatureHeaderContainer>
             <FeatureContent>
-              save frequent tasks to use again later
+              Save frequent tasks to use again later
             </FeatureContent>
           </FeatureContainer>
           <FeatureContainer>
-            <FeatureHeaderContainer>
+            <FeatureHeaderContainer shadow='rgba(230, 120, 50, 0.55)'>
               <QuestionIcon />
               <FeatureHeader>Quiz</FeatureHeader>
             </FeatureHeaderContainer>
@@ -60,9 +79,43 @@ const HeaderContainer = styled.div`
   padding: 2rem;
 `
 
-const Header = styled.h1`
+const Header = styled.p`
   color: rgba(50, 50, 200, 0.9);
   font-size: 2.5em;
+`
+
+const LogoSpan = styled.span`
+  font-weight: 500;
+`
+
+const LogoCheckIcon = styled(FaCheck)`
+  transform: rotateZ(20deg) scaleX(-1);
+  position: relative;
+  top: 0.22rem;
+`
+
+const SubHeader = styled.p`
+  color: rgba(50, 50, 200, 0.9);
+  font-size: 1.7em;
+  margin-top: -1.3rem;
+`
+
+const CallToAction = styled.div`
+  display: flex;
+  width: 12rem;
+  justify-content: space-between;
+`
+
+const SecondaryButton = styled(Button)`
+  background: none;
+  border: 1px solid blue;
+`
+
+const PrimaryButton = styled(Button)``
+
+const StyledLink = styled(Link)`
+  color: ${({ color }) => color};
+  text-decoration: none;
 `
 
 const FeaturesSection = styled.section`
@@ -98,7 +151,7 @@ const FeatureHeaderContainer = styled.div`
   display: flex;
   flex-direction: column;
   align-items: center;
-  box-shadow: ${defaultShadow};
+  box-shadow: 1px 1px 3px 1px ${({ shadow }) => shadow};
   border-radius: 50%;
   width: 5rem;
   margin: 0 auto;

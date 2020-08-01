@@ -186,7 +186,7 @@ const todosReducer = (
           todos: [
             ...state.todosApp.todos.map(todo =>
               state.todosApp.todos[payload] === todo
-                ? { ...todo, isSaved: !todo.isSaved }
+                ? { ...todo, isSaved: true }
                 : todo
             ),
           ],

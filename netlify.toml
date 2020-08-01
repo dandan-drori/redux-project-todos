@@ -1,0 +1,4 @@
+[build]
+base = "simple-todo-dandan/"
+publish = "simple-todo-dandan/build/"
+command = "npm run build"
