@@ -4,9 +4,6 @@ import { defaultShadow } from '../../theme/sharedStyle'
 import device from '../../breakpoints/breakpoints'
 
 const Contact = () => {
-  const [emailValue, setEmailValue] = useState('')
-  const [nameValue, setNameValue] = useState('')
-  const [messageValue, setMessageValue] = useState('')
   const [formValues, setFormValues] = useState({
     name: '',
     email: '',
@@ -54,6 +51,7 @@ const Contact = () => {
           <Label>Name:</Label>
           <Input
             type='text'
+            placeholder='John Doe'
             name='name'
             value={name}
             onChange={e => {
@@ -62,6 +60,7 @@ const Contact = () => {
           />
           <Label>Email:</Label>
           <Input
+            placeholder='john@gmail.com'
             type='email'
             name='email'
             value={email}
@@ -71,6 +70,7 @@ const Contact = () => {
           />
           <Label>Message:</Label>
           <Message
+            placeholder='Hi! lets connect :)'
             name='message'
             value={message}
             onChange={e => {
@@ -81,11 +81,14 @@ const Contact = () => {
         </ContactForm>
         <ContactInfo>
           <ContactInfoHeader>Contact Info</ContactInfoHeader>
-          <ContactInfoContent>
-            <ContactInfoEmail>
-              Email Address: dandandrorid@gmail.com
-            </ContactInfoEmail>
-          </ContactInfoContent>
+          <>
+            <ContactInfoDetail>
+              <Span>Email Address:</Span> dandandrorid@gmail.com
+            </ContactInfoDetail>
+            <ContactInfoDetail>
+              <Span>Address:</Span> Israel
+            </ContactInfoDetail>
+          </>
         </ContactInfo>
       </ContentWrapper>
     </>
@@ -161,10 +164,7 @@ const Message = styled.textarea`
   font-size: 1em;
   padding: 0.5rem;
   border-radius: 5px;
-
-  @media ${device.mobileL} {
-    min-height: 4rem;
-  }
+  min-height: 6rem;
 `
 
 const Label = styled.label`
@@ -192,11 +192,21 @@ const ContactInfoHeader = styled.p`
   font-size: 1.3em;
   font-weight: 500;
   text-align: center;
-  margin-top: 0rem;
+  margin-bottom: 1rem;
 `
 
-const ContactInfoContent = styled.div``
+const ContactInfoDetail = styled.p`
+  margin-bottom: 1rem;
+`
 
-const ContactInfoEmail = styled.p``
+const Span = styled.span`
+  color: blue;
+  font-weight: 500;
+  font-size: 1.1em;
+
+  @media ${device.mobileL} {
+    display: block;
+  }
+`
 
 export default Contact

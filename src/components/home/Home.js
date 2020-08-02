@@ -97,25 +97,30 @@ const LogoCheckIcon = styled(FaCheck)`
 const SubHeader = styled.p`
   color: rgba(50, 50, 200, 0.9);
   font-size: 1.7em;
-  margin-top: -1.3rem;
+  margin-top: 1.5rem;
 `
 
 const CallToAction = styled.div`
   display: flex;
-  width: 12rem;
+  width: 13rem;
   justify-content: space-between;
+  margin-top: 3.5rem;
 `
 
 const SecondaryButton = styled(Button)`
   background: none;
   border: 1px solid blue;
+  padding: 0.5rem 0;
 `
 
-const PrimaryButton = styled(Button)``
+const PrimaryButton = styled(Button)`
+  padding: 0;
+`
 
 const StyledLink = styled(Link)`
   color: ${({ color }) => color};
   text-decoration: none;
+  padding: 0.4rem 0.8rem;
 `
 
 const FeaturesSection = styled.section`
@@ -143,10 +148,6 @@ const FeatureContainer = styled.div`
   }
 `
 
-const FeaturesHeader = styled.h2`
-  text-align: center;
-`
-
 const FeatureHeaderContainer = styled.div`
   display: flex;
   flex-direction: column;
@@ -154,10 +155,19 @@ const FeatureHeaderContainer = styled.div`
   box-shadow: 1px 1px 3px 1px ${({ shadow }) => shadow};
   border-radius: 50%;
   width: 5rem;
+  height: 5rem;
   margin: 0 auto;
+  margin-bottom: 2rem;
 `
 
-const FeatureHeader = styled.h4``
+const FeaturesHeader = styled.h2`
+  text-align: center;
+  margin-bottom: 2rem;
+`
+
+const FeatureHeader = styled.h4`
+  margin-top: 1.6rem;
+`
 
 const FeatureContent = styled.p`
   text-align: center;
@@ -165,17 +175,17 @@ const FeatureContent = styled.p`
 
 const CheckIcon = styled(FaCheck)`
   position: relative;
-  top: 0.75rem;
+  top: 1rem;
 `
 
 const HeartIcon = styled(FaHeart)`
   position: relative;
-  top: 0.75rem;
+  top: 1rem;
 `
 
 const QuestionIcon = styled(FaQuestion)`
   position: relative;
-  top: 0.75rem;
+  top: 1rem;
 `
 
 export default Home

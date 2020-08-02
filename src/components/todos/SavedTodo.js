@@ -1,11 +1,13 @@
 import React from 'react'
 import styled from 'styled-components'
 import { deleteSavedTodo, addTodoFromSaved } from '../../actions'
-import { useDispatch } from 'react-redux'
+import { useDispatch, useSelector } from 'react-redux'
 import cogoToast from 'cogo-toast'
+import device from '../../breakpoints/breakpoints'
 
 const SavedTodo = ({ content, index, createdAt }) => {
   const dispatch = useDispatch()
+  const todos = useSelector(state => state.todosReducer.todosApp.todos)
 
   return (
     <Container>
@@ -16,8 +18,21 @@ const SavedTodo = ({ content, index, createdAt }) => {
       <ButtonsWrapper>
         <AddButton
           onClick={() => {
-            dispatch(addTodoFromSaved(index))
-            cogoToast.success('Added To Todos List')
+            if (todos.length !== 0) {
+              let isInTodos = false
+              todos.forEach(todo =>
+                todo.content === content ? (isInTodos = true) : null
+              )
+              if (isInTodos === true) {
+                return
+              } else {
+                dispatch(addTodoFromSaved(index))
+                cogoToast.success('Added To Todos List')
+              }
+            } else {
+              dispatch(addTodoFromSaved(index))
+              cogoToast.success('Added To Todos List')
+            }
           }}
         >
           +
@@ -37,11 +52,12 @@ const SavedTodo = ({ content, index, createdAt }) => {
 const Container = styled.div`
   background-color: lightblue;
   width: 20.5rem;
+  min-height: 5rem;
   padding-top: 0.2rem;
   padding-bottom: 0.2rem;
   padding-left: 1rem;
   padding-right: 1rem;
-  margin-top: 0.5rem;
+  margin-top: 1rem;
   border-radius: 15px;
   border: 1px solid rgba(0, 0, 0, 0.25);
   word-wrap: break-word;
@@ -61,7 +77,6 @@ const DeleteButton = styled.button`
 
 const Date = styled.p`
   color: #777;
-  margin-top: -0.1rem;
   font-size: 0.9em;
 `
 
@@ -73,8 +88,12 @@ const ContentWrapper = styled.div`
 `
 
 const Content = styled.p`
-  margin-top: -0.5rem;
   font-size: 1.1em;
+  margin-top: 0.3rem;
+
+  @media ${device.mobileL} {
+    margin-top: 0.6rem;
+  }
 `
 
 const AddButton = styled.button`

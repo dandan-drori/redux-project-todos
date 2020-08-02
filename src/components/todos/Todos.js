@@ -1,13 +1,14 @@
 import React from 'react'
 import Todo from './Todo'
 import { useSelector } from 'react-redux'
+import styled from 'styled-components'
 
 const Todos = () => {
   const todos = useSelector(state => state.todosReducer.todosApp.todos)
   return (
     <div>
       {todos.length === 0 ? (
-        <p>No Todos</p>
+        <EmptyMessage>No Todos</EmptyMessage>
       ) : (
         <ul>
           {todos.map((todo, index) => (
@@ -26,5 +27,9 @@ const Todos = () => {
     </div>
   )
 }
+
+const EmptyMessage = styled.p`
+  margin-top: 2rem;
+`
 
 export default Todos

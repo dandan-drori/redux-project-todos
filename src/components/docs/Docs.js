@@ -18,8 +18,6 @@ const Docs = () => {
   )
 }
 
-const Container = styled.div``
-
 const MainHeaderContainer = styled.div`
   padding: 2rem;
 `

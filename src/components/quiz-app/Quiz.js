@@ -6,6 +6,7 @@ import { useSelector } from 'react-redux'
 import cogoToast from 'cogo-toast'
 import device from '../../breakpoints/breakpoints'
 import { FaArrowLeft } from 'react-icons/fa'
+import { defaultShadow } from '../../theme/sharedStyle'
 
 const Quiz = ({ topic, highscore, setHighscore }) => {
   const [currentQuestionNumber, setCurrentQuestionNumber] = useState(0)
@@ -24,16 +25,25 @@ const Quiz = ({ topic, highscore, setHighscore }) => {
     setCountdown(20)
     if (currentQuestionNumber === 7) {
       cogoToast.success('Quiz completed! Your score was recorded')
+      if (score + 100 > highscore) {
+        setHighscore((score + 100).toString())
+      }
     } else {
       cogoToast.success('Correct Answer! Moving on...')
+    }
+  }
+
+  if (!strikes) {
+    if (score + 100 > highscore) {
+      setHighscore((score + 100).toString())
     }
   }
 
   const handleWrongAnswer = () => {
     setStrikes(strikes - 1)
     cogoToast.error(`Wrong Answer. ${strikes - 1} Strike/s remaining`)
-    if (score > highscore) {
-      setHighscore(score)
+    if (score + 100 > highscore) {
+      setHighscore((score + 100).toString())
     }
   }
 
@@ -51,7 +61,7 @@ const Quiz = ({ topic, highscore, setHighscore }) => {
     return () => {
       clearInterval(timer)
     }
-  }, [countdown])
+  }, [countdown, currentQuestionNumber, strikes])
 
   return (
     <Container>
@@ -97,13 +107,6 @@ const Container = styled.div`
   display: flex;
   flex-direction: column;
   align-items: center;
-  padding-left: 1rem;
-  padding-right: 1rem;
-
-  @media ${device.mobileL} {
-    padding-left: 1rem;
-    padding-right: 1rem;
-  }
 `
 
 const HeaderContainer = styled.div`
@@ -112,33 +115,33 @@ const HeaderContainer = styled.div`
   justify-content: flex-start;
   justify-content: space-between;
   width: 100%;
-`
-
-const LinkWrapper = styled.div`
-  /* width: 9rem; */
-  margin-left: 1rem;
-  border-radius: 15px;
-  padding: 0.7rem;
+  padding-bottom: 1rem;
+  padding-top: 0.5rem;
+  box-shadow: ${defaultShadow};
 
   @media ${device.mobileL} {
-    margin-right: 1rem;
-    margin-left: 0rem;
+    padding-left: 1rem;
+    padding-right: 1rem;
     background-color: rgba(255, 150, 150, 0.9);
   }
 `
 
+const LinkWrapper = styled.div`
+  margin-left: 1rem;
+  @media ${device.mobileL} {
+    margin-right: 1rem;
+    margin-left: 0rem;
+  }
+`
+
 const Header = styled.p`
+  margin-left: 4rem;
   font-size: 1.3em;
   font-weight: 400;
 
   @media ${device.mobileL} {
-    margin-right: 1rem;
-    padding-top: 0.5rem;
-    padding-bottom: 0.5rem;
     text-align: center;
-    border-radius: 15px;
-    box-shadow: 1px 1px 3px 1px rgba(0, 0, 0, 0.25);
-    background-color: rgba(255, 150, 150, 0.9);
+    margin: 0;
   }
 `
 
@@ -153,7 +156,6 @@ const Score = styled.p`
 const ProgressWrapper = styled.div`
   margin-right: 2rem;
   border-radius: 15px;
-  box-shadow: 1px 1px 3px 1px rgba(0, 0, 0, 0.25);
   margin-top: 0.5rem;
   padding-left: 0.5rem;
   padding-right: 0.5rem;
@@ -161,7 +163,6 @@ const ProgressWrapper = styled.div`
   @media ${device.mobileL} {
     margin-right: 0;
     padding-right: 0.1rem;
-    background-color: rgba(255, 150, 150, 0.9);
   }
 `
 

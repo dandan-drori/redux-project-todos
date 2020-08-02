@@ -63,8 +63,137 @@ const quiz = (
         hint: 'No hint available for this question',
       },
     ],
-    drinks: {},
-    food: {},
+    drinks: [
+      {
+        questionNumber: 1,
+        question:
+          'During which year was cocaine finally removed as an ingredient in Coca Cola?',
+        answers: ['1929', '1898', '1917', '1947'],
+        rightAnswer: '1929',
+        hint:
+          'cocaine used to be a recurring ingredient in Coca Cola, as the drug was then legal and used for medicinal purposes.',
+      },
+      {
+        questionNumber: 2,
+        question: 'Which cocktail consists of Tia Maria, Vodka and Coke?',
+        answers: ['Mimosa', 'Black Russian', 'Sahti', 'Mead'],
+        rightAnswer: 'Black Russian',
+        hint: 'Think VODKA',
+      },
+      {
+        questionNumber: 3,
+        question: 'What beer barrel contains 108 gallons?',
+        answers: ['Stout', 'Lager', 'Ale', 'butt'],
+        rightAnswer: 'butt',
+        hint: "It's nasty",
+      },
+      {
+        questionNumber: 4,
+        question: 'Bacardi and Carioca rums come from what country?',
+        answers: ['Mexico', 'Puerto-Rico', 'Costa-Rica', 'Italy'],
+        rightAnswer: 'Costa-Rica',
+        hint: 'Rum is not really high class is it?',
+      },
+      {
+        questionNumber: 5,
+        question:
+          'What does it mean about the taste if a wine is described as ‘brut’?',
+        answers: ['Not Sweet', 'Very Dry', 'Too Sweet', 'Not Dry Enough'],
+        rightAnswer: 'Very Dry',
+        hint: 'Very confusing is it?',
+      },
+      {
+        questionNumber: 6,
+        question: 'Grolsch lager comes from what country?',
+        answers: ['Holland', 'Germany', 'France', 'England'],
+        rightAnswer: 'Holland',
+        hint: 'Never say never',
+      },
+      {
+        questionNumber: 7,
+        question: 'The drink Kirsch is flavored with what?',
+        answers: ['Mango', 'Peach', 'Tomato', 'Cherries'],
+        rightAnswer: 'Cherries',
+        hint: 'Really? a tomato in a drink? you can do better than that',
+      },
+      {
+        questionNumber: 8,
+        question:
+          'Which drink did Bach enjoy so much he wrote a cantata for it?',
+        answers: ['Beer', 'Coffee', 'Tea', 'Sprite'],
+        rightAnswer: 'Coffee',
+        hint: "It's addicting",
+      },
+    ],
+    food: [
+      {
+        questionNumber: 1,
+        question: 'What is the name of the hottest pepper in the world?',
+        answers: ['Jalapeno', 'Poblano', 'Carolina Reaper', 'Guajillo Chili'],
+        rightAnswer: 'Carolina Reaper',
+        hint:
+          'It was declared the hottest pepper by Guinness World Records in 2013.',
+      },
+      {
+        questionNumber: 2,
+        question: 'Kiwifruit are indigenous to which part of the world?',
+        answers: ['China', 'Africa', 'Netherlands', 'Australia'],
+        rightAnswer: 'China',
+        hint: 'Kiwi was first recorded during the 12th Century Song dynasty.',
+      },
+      {
+        questionNumber: 3,
+        question: 'Which liquor is made from the blue agave plant?',
+        answers: ['Tequila', 'Vodka', 'Whiskey', 'Brandy'],
+        rightAnswer: 'Tequila',
+        hint:
+          'The blue agave plant is important to the economy of Mexico. It has a major role in making this popular distilled beverage because it is the main ingredient.',
+      },
+      {
+        questionNumber: 4,
+        question:
+          'The snack commonly referred to as "potato chips" were originally called what?',
+        answers: [
+          'Herbal Chips',
+          'Armanian Chips',
+          'Fresh Chips',
+          'Saratoga Chips',
+        ],
+        rightAnswer: 'Saratoga Chips',
+        hint: 'Potato Chips originated at New York in the late 19th century.',
+      },
+      {
+        questionNumber: 5,
+        question: 'What does the Slavic word "vodka" translate to in English?',
+        answers: ['Little Water', 'Small Juice', 'Fresh Water', 'Cold Juice'],
+        rightAnswer: 'Little Water',
+        hint: 'No hint available for this question',
+      },
+      {
+        questionNumber: 6,
+        question: 'What are dried plums called?',
+        answers: ['Moores', 'Sorbs', 'Prunes', 'Lunes'],
+        rightAnswer: 'Prunes',
+        hint: 'No hint available for this question',
+      },
+      {
+        questionNumber: 7,
+        question: 'What is the only edible food that is said to never spoils?',
+        answers: ['Avocado', 'Honey', 'Candy', 'Coconut'],
+        rightAnswer: 'Honey',
+        hint:
+          'Due to its relatively-low levels of moisture and high levels of acidity, bacteria and microorganisms have a hard time making a permanent home out of it',
+      },
+      {
+        questionNumber: 8,
+        question:
+          'According to legend, vampires are exceptionally vulnerable to which vegetable?',
+        answers: ['Onion', 'Apple', 'Peer', 'Garlic'],
+        rightAnswer: 'Garlic',
+        hint:
+          'in Romania people used to actually place it in the mouths of carcasses of suspected vampires.',
+      },
+    ],
     computers: [
       {
         questionNumber: 1,

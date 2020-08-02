@@ -46,7 +46,7 @@ const Question = ({
         <FaLightbulb color='yellow' />
         Hint
       </HintButton>
-      <HintTextWrapper>
+      <HintTextWrapper isHintVisible={isHintVisible}>
         <HintSide>{''}</HintSide>
         <HintText>Hint: {question.hint}</HintText>
       </HintTextWrapper>
@@ -65,10 +65,13 @@ const Header = styled.p`
   font-size: 1.3em;
   color: blue;
   text-decoration: underline;
+  margin-top: 1rem;
+  margin-bottom: 1rem;
 `
 
 const QuestionText = styled.p`
   font-size: 1.2em;
+  text-align: center;
 `
 
 const List = styled.ul`
@@ -76,15 +79,12 @@ const List = styled.ul`
   flex-wrap: wrap;
   justify-content: space-evenly;
   padding: 0;
-
-  @media ${device.mobileL} {
-    margin-left: 1rem;
-  }
+  margin-top: 1rem;
+  margin-bottom: 1rem;
 `
 
 const Submit = styled(Button)`
   @media ${device.mobileL} {
-    margin-top: 0.5rem;
     font-size: 1.1em;
   }
 `
@@ -109,13 +109,12 @@ const HintTextWrapper = styled.div`
   background-color: grey;
   margin-top: 1rem;
   max-width: 50%;
-  display: flex;
   border-radius: 5px;
   position: relative;
   box-shadow: 1px 1px 3px 1px rgba(0, 0, 0, 0.25);
   padding-right: 0.5rem;
-
-  /* isHintVisible={isHintVisible} */
+  padding: 1rem;
+  display: ${({ isHintVisible }) => (isHintVisible ? 'flex' : 'none')};
 
   @media ${device.mobileL} {
     max-width: 80%;
@@ -132,6 +131,8 @@ const HintSide = styled.div`
   height: 100%;
   width: 0.3rem;
   position: absolute;
+  left: 0;
+  top: 0;
   border-radius: 5px 0 0 5px;
 `
 

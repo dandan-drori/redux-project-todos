@@ -34,6 +34,7 @@ const Container = styled.div`
 
 const Header = styled.p`
   font-size: 1.5em;
+  margin: 2rem 0;
 `
 
 export default SavedTodos

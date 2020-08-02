@@ -80,6 +80,8 @@ const Container = styled.div`
 
 const Header = styled.p`
   font-size: 1.5em;
+  margin-top: 2rem;
+  margin-bottom: 1rem;
 `
 
 const List = styled.ul`

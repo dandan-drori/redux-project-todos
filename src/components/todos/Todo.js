@@ -29,8 +29,12 @@ const Todo = ({ content, index, createdAt, isCompleted, id, isSaved }) => {
       <ButtonsWrapper>
         <SaveButton
           onClick={e => {
+            let isInSavedTodos = false
+            savedTodos.forEach(savedTodo =>
+              savedTodo.content === content ? (isInSavedTodos = true) : null
+            )
             if (savedTodos.length !== 0) {
-              if (content === savedTodos[0].content) {
+              if (isInSavedTodos === true) {
                 return
               } else {
                 dispatch(saveTodo(index))
@@ -59,12 +63,12 @@ const Todo = ({ content, index, createdAt, isCompleted, id, isSaved }) => {
 const Container = styled.li`
   background-color: lightblue;
   width: 20.5rem;
+  min-height: 5rem;
   padding-top: 0.2rem;
   padding-bottom: 0.2rem;
   padding-left: 1rem;
   padding-right: 1rem;
-  margin-top: 0.5rem;
-  margin-right: 2.5rem;
+  margin-top: 1rem;
   border-radius: 15px;
   border: 1px solid rgba(0, 0, 0, 0.25);
   word-wrap: break-word;
@@ -74,6 +78,7 @@ const Container = styled.li`
   @media ${device.mobileL} {
     padding-top: 0.5rem;
     padding-bottom: 0.5rem;
+    width: 100%;
   }
 `
 
@@ -89,7 +94,6 @@ const DeleteButton = styled.button`
 
 const Date = styled.p`
   color: #777;
-  margin-top: -0.1rem;
   font-size: 0.9em;
 
   @media ${device.mobileL} {
@@ -100,8 +104,6 @@ const Date = styled.p`
 const ContentWrapper = styled.div`
   display: flex;
   flex-direction: column;
-  justify-content: flex-start;
-  align-items: flex-start;
 `
 
 const Content = styled.p`
@@ -109,6 +111,10 @@ const Content = styled.p`
   font-size: 1.1em;
   text-decoration: ${({ isCompleted }) =>
     isCompleted ? 'line-through' : 'none'};
+
+  @media ${device.mobileL} {
+    margin-top: -0.25rem;
+  }
 `
 
 const SaveButton = styled.button`
@@ -117,12 +123,9 @@ const SaveButton = styled.button`
   cursor: pointer;
   outline: none;
   padding: 0;
-  font-size: 1.6em;
-
-  @media ${device.mobileL} {
-    font-size: 1em;
-    color: black;
-  }
+  font-size: 1em;
+  position: relative;
+  top: 0.13rem;
 `
 
 const HeartIcon = styled(FaHeart)`
@@ -131,6 +134,7 @@ const HeartIcon = styled(FaHeart)`
 
 const InputContentWrapper = styled.div`
   display: flex;
+  margin-top: 0.7rem;
 `
 
 const ButtonsWrapper = styled.div`
@@ -145,11 +149,11 @@ const ButtonsWrapper = styled.div`
 
 const Checkbox = styled.input`
   position: relative;
-  top: -0.18rem;
   margin-right: 0.5rem;
 
   @media ${device.mobileL} {
-    top: -0.5rem;
+    position: relative;
+    top: -0.08rem;
   }
 `
 
