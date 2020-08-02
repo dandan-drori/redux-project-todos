@@ -1,4 +1,3 @@
 [build]
-base = "simple-todo-dandan/"
-publish = "simple-todo-dandan/build/"
+publish = "build/"
 command = "npm run build"
