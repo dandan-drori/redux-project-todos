@@ -11,35 +11,35 @@ import Docs from './components/docs/Docs'
 import Contact from './components/contact/Contact'
 
 const App = () => {
-  return (
-    <Router>
-      <>
-        <GlobalStyle />
-        <Nav />
-        <Switch>
-          <Route path='/' exact>
-            <Home />
-          </Route>
-          <Route path='/todos'>
-            <TodoApp />
-          </Route>
-          <Route path='/saved-todos'>
-            <SavedTodos />
-          </Route>
-          <Route path='/quiz-app'>
-            <QuizApp />
-          </Route>
-          <Route path='/docs'>
-            <Docs />
-          </Route>
-          <Route path='/contact-us'>
-            <Contact />
-          </Route>
-        </Switch>
-        <BottomNav />
-      </>
-    </Router>
-  )
+	return (
+		<Router>
+			<>
+				<GlobalStyle />
+				<Nav />
+				<Switch>
+					<Route path='/' exact>
+						<Home />
+					</Route>
+					<Route path='/todos'>
+						<TodoApp />
+					</Route>
+					<Route path='/saved-todos'>
+						<SavedTodos />
+					</Route>
+					<Route path='/quiz-app'>
+						<QuizApp />
+					</Route>
+					<Route path='/docs'>
+						<Docs />
+					</Route>
+					<Route path='/contact-us'>
+						<Contact />
+					</Route>
+				</Switch>
+				<BottomNav />
+			</>
+		</Router>
+	)
 }
 
 export default App
